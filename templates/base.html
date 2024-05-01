@@ -1,0 +1,31 @@
+
+{% block content %}
+
+<form action="/results" method="POST">
+    <input name="city" type="text">
+    <input type="submit">
+</form>
+
+<div class="card" style="width: 50%;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+                Weather
+            </div>
+        </div>
+
+        <div class="row">
+            {% for date, temps in daily_temperatures.items() %}
+            <div class="col">
+                                <img src="static/"> {{ temp_icon }}
+                {{ date }} - <span>{{ temps.get('min_temp', '-') }}/{{ temps.get('max_temp', '-') }}</span>°C
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<img src="static/test_chart.png">
+{% endblock %}
